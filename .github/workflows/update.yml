@@ -9,6 +9,11 @@ jobs:
   update-resume:
     runs-on: ubuntu-latest
 
+    # 🔥 ADD THIS (VERY IMPORTANT)
+    env:
+      EMAIL_USER: ${{ secrets.EMAIL_USER }}
+      EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
