@@ -17,14 +17,19 @@ os.system("python scripts/generate_resume.py")
 print("\n🌐 Updating website...")
 shutil.copy("output/resume.html", "index.html")
 
-# Step 4: Send Email Notification
+# Step 4: Email Notification
 print("\n📧 Sending email notification...")
-import os
 
+# 🔐 Get from GitHub Secrets
 sender_email = os.getenv("EMAIL_USER")
-receiver_email = sender_email
+receiver_email = "araj84265@gmail.com"   # your email
 app_password = os.getenv("EMAIL_PASS")
 
+# 🔍 Debug prints (IMPORTANT)
+print("DEBUG EMAIL:", sender_email)
+print("DEBUG PASS:", "Loaded" if app_password else None)
+
+# Email content
 message = MIMEText("Your resume has been updated successfully!")
 message["Subject"] = "Resume Update Notification"
 message["From"] = sender_email
@@ -38,6 +43,6 @@ try:
     server.quit()
     print("Email sent successfully ✅")
 except Exception as e:
-    print("Email failed:", e)
+    print("❌ Email failed:", e)
 
 print("\n✅ Resume & website updated successfully!")
