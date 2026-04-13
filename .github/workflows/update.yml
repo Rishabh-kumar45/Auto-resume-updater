@@ -1,46 +1,35 @@
-name: Auto Resume Update
+name: Auto Update Resume
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "0 0 * * *"   # Runs every day at 12 AM UTC
+  workflow_dispatch:       # Allows manual run
 
 jobs:
   update-resume:
     runs-on: ubuntu-latest
 
-    # 🔥 ADD THIS (VERY IMPORTANT)
-    env:
-      EMAIL_USER: ${{ secrets.EMAIL_USER }}
-      EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      # 🔥 Fix WeasyPrint dependencies
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libpango-1.0-0 libcairo2 libgdk-pixbuf2.0-0
-
-      - name: Install Python dependencies
+      - name: Install Dependencies
         run: |
           pip install requests jinja2 weasyprint
 
-      - name: Run Automation Script
+      - name: Run Resume Script
         run: python run.py
 
-      # 🔥 Safe commit (no crash)
-      - name: Commit Updated Resume
+      - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add output/resume.pdf index.html || true
-          git diff --cached --quiet || git commit -m "Auto update resume"
-          git push || true
+
+          git add .
+          git commit -m "Auto update resume" || echo "No changes to commit"
+          git push
