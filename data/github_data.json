@@ -8,29 +8,29 @@
   "summary": "Passionate developer with interest in DevOps and automation.",
   "repos": [
     {
-      "name": "auto-resume-updater",
-      "description": "No description available",
-      "url": "https://github.com/Ayushraj2319/auto-resume-updater"
-    },
-    {
-      "name": "react-starter",
-      "description": "No description available",
-      "url": "https://github.com/Ayushraj2319/react-starter"
+      "name": "GROUP-PROJECT",
+      "description": "Collaborative project demonstrating team-based development, version control, and feature integration.",
+      "url": "https://github.com/Ayushraj2319/GROUP-PROJECT"
     },
     {
       "name": "CICD",
-      "description": "No description available",
+      "description": "Implementation of CI/CD pipeline concepts including automated build, test, and deployment workflows.",
       "url": "https://github.com/Ayushraj2319/CICD"
+    },
+    {
+      "name": "react-starter",
+      "description": "Basic React starter template with optimized project structure for scalable frontend development.",
+      "url": "https://github.com/Ayushraj2319/react-starter"
+    },
+    {
+      "name": "auto-resume-updater",
+      "description": "Automated resume generator using GitHub API, Jinja templates, and CI/CD pipeline with GitHub Actions.",
+      "url": "https://github.com/Ayushraj2319/auto-resume-updater"
     },
     {
       "name": "Memori",
       "description": "SQL Native Memory Layer for LLMs, AI Agents & Multi-Agent Systems",
       "url": "https://github.com/Ayushraj2319/Memori"
-    },
-    {
-      "name": "GROUP-PROJECT",
-      "description": "No description available",
-      "url": "https://github.com/Ayushraj2319/GROUP-PROJECT"
     }
   ],
   "skills": [
