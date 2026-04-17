@@ -1,22 +1,23 @@
 import os
 import smtplib
+import shutil
 from email.mime.text import MIMEText
 from jinja2 import Environment, FileSystemLoader
 from scripts.fetch_github import fetch_data
 
 print("🚀 Starting Resume Automation...\n")
 
-# 🔹 Step 1: Fetch GitHub Data
-print("📡 Fetching GitHub data...")
-username = input("Enter GitHub username: ").strip()
+# 🔹 Username (no input for CI/CD)
+username = os.getenv("GITHUB_USERNAME") or "Ayushraj2319"
 
+print(f"📡 Fetching GitHub data for {username}...")
 data = fetch_data(username)
 
 if not data:
-    print("❌ Stopping due to error.")
+    print("❌ Failed to fetch data")
     exit()
 
-# 🔹 Step 2: Generate Resume Website
+# 🔹 Generate HTML
 print("\n📝 Generating Resume Website...")
 
 env = Environment(loader=FileSystemLoader("templates"))
@@ -29,13 +30,14 @@ with open("index.html", "w", encoding="utf-8") as f:
 
 print("✅ index.html generated")
 
-# 🔹 Step 3: (Optional) Keep PDF if exists
-if os.path.exists("resume.pdf"):
-    print("📄 Resume PDF already exists")
+# 🔹 Copy PDF to root (IMPORTANT FIX)
+if os.path.exists("output/resume.pdf"):
+    shutil.copy("output/resume.pdf", "resume.pdf")
+    print("📄 PDF copied to root")
 else:
-    print("⚠️ No resume.pdf found (optional)")
+    print("⚠️ resume.pdf not found")
 
-# 🔹 Step 4: Email Notification
+# 🔹 Email notification
 print("\n📧 Sending email notification...")
 
 sender_email = os.getenv("EMAIL_USER")
@@ -43,18 +45,20 @@ receiver_email = sender_email
 app_password = os.getenv("EMAIL_PASS")
 
 if sender_email and app_password:
-    message = MIMEText("✅ Your resume website has been updated successfully!")
-    message["Subject"] = "Resume Updated"
-    message["From"] = sender_email
-    message["To"] = receiver_email
-
     try:
+        message = MIMEText("✅ Resume updated successfully!")
+        message["Subject"] = "Resume Update"
+        message["From"] = sender_email
+        message["To"] = receiver_email
+
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login(sender_email, app_password)
         server.send_message(message)
         server.quit()
+
         print("✅ Email sent successfully")
+
     except Exception as e:
         print("❌ Email failed:", e)
 else:
