@@ -1,30 +1,42 @@
 {
-  "name": "Priyanshu Singh",
+  "name": "Rishabh Kumar",
   "role": "DevOps Enthusiast",
-  "github_username": "PRIYANSHU-OSAMU",
-  "github_url": "https://github.com/PRIYANSHU-OSAMU",
+  "github_username": "Rishabh-kumar45",
+  "github_url": "https://github.com/Rishabh-kumar45",
   "linkedin": "your-linkedin-id",
-  "avatar": "https://avatars.githubusercontent.com/u/170090658?v=4",
-  "summary": "Passionate developer with interest in DevOps and automation.",
+  "avatar": "https://avatars.githubusercontent.com/u/182552484?v=4",
+  "summary": "KIET CS'28",
   "repos": [
     {
-      "name": "Prompt-Manager",
-      "description": "Mid semester FSD project",
-      "url": "https://github.com/PRIYANSHU-OSAMU/Prompt-Manager"
+      "name": "Dep_demo",
+      "description": "No description available",
+      "url": "https://github.com/Rishabh-kumar45/Dep_demo"
+    },
+    {
+      "name": "PE",
+      "description": "No description available",
+      "url": "https://github.com/Rishabh-kumar45/PE"
+    },
+    {
+      "name": "PE-Task-1",
+      "description": "No description available",
+      "url": "https://github.com/Rishabh-kumar45/PE-Task-1"
     },
     {
       "name": "Portfolio",
       "description": "No description available",
-      "url": "https://github.com/PRIYANSHU-OSAMU/Portfolio"
+      "url": "https://github.com/Rishabh-kumar45/Portfolio"
     },
     {
-      "name": "Full_Stack_Development",
-      "description": "full stack development by xebia",
-      "url": "https://github.com/PRIYANSHU-OSAMU/Full_Stack_Development"
+      "name": "OOPs-Java",
+      "description": "No description available",
+      "url": "https://github.com/Rishabh-kumar45/OOPs-Java"
     }
   ],
   "skills": [
+    "CSS",
+    "HTML",
     "JavaScript",
-    "HTML"
+    "Java"
   ]
 }
