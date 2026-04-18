@@ -34,11 +34,11 @@ It uses automation pipelines to keep the resume updated without manual effort.
 
 ### 💻 Resume Website
 
-![Resume Screenshot](./profile.jpg)
+![Resume](assets/resume.png)
 
 ### ⚙️ CI/CD Pipeline
 
-![Pipeline Screenshot](./.github/workflows/update.yml)
+![Pipeline](assets/pipeline.png)
 
 ---
 
@@ -54,7 +54,7 @@ It uses automation pipelines to keep the resume updated without manual effort.
 
 ## ⚙️ How It Works
 
-```text
+```
 GitHub API → Fetch Data → Process → Generate HTML → Deploy via GitHub Pages
 ```
 
@@ -64,7 +64,7 @@ GitHub API → Fetch Data → Process → Generate HTML → Deploy via GitHub Pa
 
 ### 1. Clone Repository
 
-```bash
+```
 git clone https://github.com/Ayushraj2319/auto-resume-updater.git
 cd auto-resume-updater
 ```
@@ -73,7 +73,7 @@ cd auto-resume-updater
 
 ### 2. Create Virtual Environment
 
-```bash
+```
 python3 -m venv venv
 source venv/bin/activate
 ```
@@ -82,7 +82,7 @@ source venv/bin/activate
 
 ### 3. Install Dependencies
 
-```bash
+```
 pip install requests jinja2
 ```
 
@@ -90,7 +90,7 @@ pip install requests jinja2
 
 ### 4. Add GitHub Token (Important)
 
-```bash
+```
 export GITHUB_TOKEN=your_token_here
 ```
 
@@ -98,7 +98,7 @@ export GITHUB_TOKEN=your_token_here
 
 ### 5. Run Project
 
-```bash
+```
 python run.py
 ```
 
@@ -126,6 +126,9 @@ auto-resume-updater/
 │   └── resume.html
 ├── output/
 ├── data/
+├── assets/
+│   ├── resume.png
+│   └── pipeline.png
 ├── index.html
 ├── resume.pdf
 ├── run.py
