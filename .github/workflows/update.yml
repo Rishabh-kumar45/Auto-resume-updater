@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Script
         env:
-          GITHUB_USERNAME: Ayushraj2319
+          GITHUB_USERNAME: Rishabh-kumar45
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: python run.py
